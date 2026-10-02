@@ -1,0 +1,46 @@
+﻿/*
+  index.css
+  ---------
+  This is the main stylesheet for the entire site.
+  With Tailwind v4 we configure everything here using @theme.
+
+  @theme is where we define our custom design tokens --
+  think of them as variables for our colors and fonts.
+  Once defined here, we can use them as Tailwind classes
+  anywhere in the code (e.g. bg-navy, text-charcoal, font-heading).
+*/
+
+/* This one line loads all of Tailwind CSS into the project */
+@import "tailwindcss";
+
+@theme {
+  /* ----------------------------------------
+     FONTS
+     font-heading = Oswald  (all titles/headings)
+     font-body    = Lato    (all paragraphs/body text)
+  ---------------------------------------- */
+  --font-heading: "Oswald", sans-serif;
+  --font-body: "Lato", sans-serif;
+
+  /* ----------------------------------------
+     COLORS  (from our design-system.md)
+     These become Tailwind classes automatically.
+     Example: --color-navy becomes bg-navy, text-navy, border-navy
+  ---------------------------------------- */
+  --color-navy:        #13243F; /* Navbar, primary brand color      */
+  --color-charcoal:    #1B1E21; /* Footer background                */
+  --color-dark-text:   #212529; /* Body text on white sections      */
+  --color-light-gray:  #F7F7F7; /* Alternating section backgrounds  */
+  --color-whatsapp:    #25D366; /* WhatsApp buttons ONLY            */
+  --color-accent-blue: #46679B; /* Call Now outline button          */
+}
+
+/* ----------------------------------------
+   BASE STYLES
+   These apply to every page automatically.
+---------------------------------------- */
+body {
+  font-family: "Lato", sans-serif; /* Default font for all body text */
+  color: #212529;                  /* Default text color              */
+  background-color: #ffffff;       /* Default background              */
+}
