@@ -1,4 +1,4 @@
-﻿// Contact.jsx  (Page 3)
+// Contact.jsx  (Page 3)
 // ----------------------
 // The Contact page -- currently a "coming soon" placeholder.
 //
@@ -11,7 +11,7 @@
 
 import { useLang } from "../context/LanguageContext";
 
-const WHATSAPP_URL = "https://wa.me/19394576553";
+const WHATSAPP_URL = "https://wa.me/19194576553";
 
 export default function Contact() {
   const { t } = useLang();
@@ -45,10 +45,10 @@ export default function Contact() {
 
         {/* Phone number as a tap-to-call link */}
         <a
-          href="tel:+19394576553"
+          href="tel:+19194576553"
           className="font-body text-accent-blue font-bold text-lg hover:underline"
         >
-          (939) 457-6553
+          (919) 457-6553
         </a>
       </div>
     </section>

@@ -14,15 +14,15 @@
 //   style={{ backgroundImage: ... }} line below.
 //
 // PHONE NUMBER:
-//   (939) 457-6553 -- used for WhatsApp link and tel: call link
+//   (919) 457-6553 -- used for WhatsApp link and tel: call link
 
 import { useLang } from "../context/LanguageContext";
 
 // The WhatsApp link opens a chat with the client directly
-const WHATSAPP_URL = "https://wa.me/19394576553";
+const WHATSAPP_URL = "https://wa.me/19194576553";
 
 // The phone number for the Call Now button
-const PHONE = "tel:+19394576553";
+const PHONE = "tel:+19194576553";
 
 // Placeholder hero background image (Unsplash -- free to use)
 // Replace this URL with the real client photo when ready

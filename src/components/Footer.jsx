@@ -1,4 +1,4 @@
-﻿// Footer.jsx
+// Footer.jsx
 // ----------
 // The footer at the bottom of every page.
 //
@@ -40,8 +40,8 @@ export default function Footer() {
             <ul className="font-body text-sm text-white/70 space-y-1">
               <li>{t("footer_location")}</li>
               <li>
-                <a href="tel:+19394576553" className="hover:text-white transition">
-                  (939) 457-6553
+                <a href="tel:+19194576553" className="hover:text-white transition">
+                  (919) 457-6553
                 </a>
               </li>
               <li>

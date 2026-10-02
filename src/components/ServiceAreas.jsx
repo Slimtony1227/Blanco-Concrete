@@ -1,4 +1,4 @@
-﻿// ServiceAreas.jsx
+// ServiceAreas.jsx
 // ----------------
 // The "Areas We Serve" section on the Home page.
 //
@@ -13,7 +13,7 @@
 
 import { useLang } from "../context/LanguageContext";
 
-const WHATSAPP_URL = "https://wa.me/19394576553";
+const WHATSAPP_URL = "https://wa.me/19194576553";
 
 export default function ServiceAreas() {
   const { t } = useLang();
