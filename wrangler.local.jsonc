@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Local testing only. Hosted Cloudflare setup will use a separate configuration.
+  "name": "blanco-reviews-local",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-08",
+  "workers_dev": false,
+  "vars": { "LOCAL_REVIEW_MODE": "true" },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api", "/api/*"]
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "blanco-reviews-local",
+    // Placeholder for local storage, not a hosted database ID.
+    "database_id": "00000000-0000-0000-0000-000000000001",
+    "migrations_dir": "migrations",
+    "remote": false
+  }]
+}

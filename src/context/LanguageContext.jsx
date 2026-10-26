@@ -13,11 +13,13 @@
 // every single file.
 
 import { createContext, useContext, useState } from "react";
+import { reviewTranslations } from "../content/reviews";
 
 // All text content for the site in both languages.
 // Spanish (es) is the default -- the site launches in Spanish.
 const translations = {
   es: {
+    ...reviewTranslations.es,
     // --- Navbar ---
     nav_home:    "Inicio",
     nav_about:   "Nosotros",
@@ -82,6 +84,7 @@ const translations = {
   },
 
   en: {
+    ...reviewTranslations.en,
     // --- Navbar ---
     nav_home:    "Home",
     nav_about:   "About Us",

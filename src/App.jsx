@@ -17,10 +17,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
+import ReviewAdmin from "./pages/ReviewAdmin";
+import PageMetadata from "./components/PageMetadata";
 
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
+      <PageMetadata />
       {/* Navbar sticks to the top of every page */}
       <Navbar />
 
@@ -30,6 +33,7 @@ export default function App() {
           <Route path="/"          element={<Home />}    />
           <Route path="/nosotros"  element={<AboutUs />} />
           <Route path="/contacto"  element={<Contact />} />
+          <Route path="/admin/reviews" element={<ReviewAdmin />} />
         </Routes>
       </main>
 

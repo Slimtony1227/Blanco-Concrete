@@ -1,0 +1,4 @@
+# macOS creates these bookkeeping files on external drives.
+# They are not website content and must not be uploaded.
+**/._*
+**/.DS_Store

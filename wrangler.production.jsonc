@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Production website and reviews. The hosted database migration is applied.
+  // Deployment requires the encrypted Turnstile secret below.
+  "name": "blanco-concrete",
+  "account_id": "792fe3deeda8e8ae5837d0b141252d6f",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-08",
+
+  "secrets": { "required": ["TURNSTILE_SECRET_KEY"] },
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+  },
+
+  // At deployment, serve this existing custom domain and disable alternate
+  // workers.dev/version-preview URLs. Saving this file changes nothing online.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "blancosconcretepaintandmaintenance.com", "custom_domain": true }
+  ],
+
+  "vars": {
+    // Admin requests require Access; public submissions require spam protection.
+    "LOCAL_REVIEW_MODE": "false",
+    "PUBLIC_REVIEWS_ENABLED": "true",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFkQ1tee9aaSCSbz",
+    // TURNSTILE_SECRET_KEY belongs in Cloudflare's encrypted secrets, not here.
+    // These three values are configuration, not secret credentials.
+    // The Worker checks these before allowing production administration.
+    "TEAM_DOMAIN": "https://damp-darkness-98b6.cloudflareaccess.com",
+    "POLICY_AUD": "6742eaf98506cf091d55d09deb065ff67063f9572dca6896ae178b09ea756b79",
+    "ALLOWED_HOSTNAME": "blancosconcretepaintandmaintenance.com"
+  },
+
+  "ratelimits": [
+    {
+      "name": "REVIEW_SUBMISSIONS",
+      // Account-unique counter group for this site's review submissions.
+      "namespace_id": "2026102401",
+      // Approximate limit per IP at each Cloudflare location, not a global quota.
+      "simple": { "limit": 5, "period": 60 }
+    }
+  ],
+
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    // Check the hostname and protected paths before assets can be served,
+    // including encoded paths that would otherwise miss a simple /admin/* rule.
+    "run_worker_first": true
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "blanco-reviews",
+      "database_id": "d5bddf17-fcf1-4d46-b5e5-52c6090d57d9",
+      "migrations_dir": "migrations",
+      // Local development using this file must not silently use the live DB.
+      // A future deployment still binds the hosted database identified above.
+      "remote": false
+    }
+  ]
+}
