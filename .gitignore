@@ -27,3 +27,12 @@ dist-ssr
 ._*
 .Spotlight-V100
 .Trashes
+
+# Local Cloudflare data, old backup folder, and private development settings
+dev/
+.wrangler/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.env.example
