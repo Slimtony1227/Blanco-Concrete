@@ -1,6 +1,7 @@
 // Keep the public address and page descriptions together for easy updates.
 export const siteUrl = "https://blancosconcretepaintandmaintenance.com";
 export const businessName = "Blanco's Concrete Paint & Maintenance Service";
+export const socialImageUrl = `${siteUrl}/footage/logo.jpeg`;
 
 // Public business facts for search engines. Service areas are places we travel
 // to, not office addresses. No private address is included.
@@ -10,6 +11,8 @@ export const organizationData = {
   "@id": `${siteUrl}/#organization`,
   name: businessName,
   url: `${siteUrl}/`,
+  logo: socialImageUrl,
+  image: socialImageUrl,
   telephone: "+19194576553",
   areaServed: ["Raleigh, NC", "Dunn, NC", "Fayetteville, NC"].map((name) => ({
     "@type": "City",
@@ -48,6 +51,7 @@ export function getMetadata(pathname, language = "es") {
     title: `${businessName}${label ? ` — ${label}` : ""} | Raleigh, NC`,
     description,
     url: `${siteUrl}${path === "/" ? "/" : path}`,
+    image: socialImageUrl,
     robots: !page || page.noindex ? "noindex, nofollow" : "index, follow",
     locale: language === "en" ? "en_US" : "es_US",
   };

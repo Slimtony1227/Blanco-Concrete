@@ -42,7 +42,8 @@ Here, `run` selects the `build` script in `package.json`; `&&` runs the metadata
 step only if the site build succeeds. There are no extra command flags.
 The metadata step writes HTML files for each page, so shared-link services can
 read the correct Spanish metadata without running JavaScript. It does not
-pre-render the page content. No packages were added. No social image is set yet.
+pre-render the page content. No packages were added. The shared-link preview image
+points to `https://blancosconcretepaintandmaintenance.com/footage/logo.jpeg`.
 Changes must be deployed before they appear on the public site.
 
 ### Sitemap and crawler instructions
@@ -89,7 +90,8 @@ indexing requests remain pending until all site changes are ready.
 and Raleigh, Dunn, and Fayetteville service areas. The build places these in
 the homepage HTML, and `PageMetadata` keeps the block correct during navigation.
 No address is included because the business travels to customers. No new
-packages are needed. A logo can be added once the preferred image is confirmed.
+packages are needed. The business `logo` and `image` fields point to
+`https://blancosconcretepaintandmaintenance.com/footage/logo.jpeg`.
 
 - `<script type="application/ld+json">` holds information for search engines;
   it is data, not code that runs on the page.

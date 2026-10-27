@@ -35,10 +35,12 @@ export default function PageMetadata() {
       "og:title": page.title,
       "og:description": page.description,
       "og:url": page.url,
+      "og:image": page.image,
       "og:locale": page.locale,
-      "twitter:card": "summary",
+      "twitter:card": "summary_large_image",
       "twitter:title": page.title,
       "twitter:description": page.description,
+      "twitter:image": page.image,
     };
     for (const [name, content] of Object.entries(values)) {
       document.querySelector(`meta[${name.startsWith("og:") ? "property" : "name"}="${name}"]`).content = content;

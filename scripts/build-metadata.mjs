@@ -13,8 +13,9 @@ for (const path of Object.keys(pageMetadata)) {
   const values = {
     description: page.description, robots: page.robots,
     "og:title": page.title, "og:description": page.description,
-    "og:url": page.url, "og:locale": page.locale,
+    "og:url": page.url, "og:image": page.image, "og:locale": page.locale,
     "twitter:title": page.title, "twitter:description": page.description,
+    "twitter:image": page.image,
   };
   for (const [name, content] of Object.entries(values)) {
     html = html.replace(new RegExp(`(<meta (?:name|property)="${name}" content=")[^"]*("\\s*/>)`), (_, before, after) => `${before}${escape(content)}${after}`);
